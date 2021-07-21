@@ -1,0 +1,8 @@
+[
+	{
+		"username": "test",
+		"email": "brah@gmail.com",
+		"salt": "e45eda013c8f27bf87d48a58abdd1097819c060f06a7118178d5d0c3fedb209f",
+		"hash": "e14e440502d77f7df0b8cfa7e34df5c6493aab3ad2f629536d8fc5d7d9eedc44c6082be2d57db3d89a6c8286cc9722e8ef66689b89b1fc7f8dc429f64c52cf8f"
+	}
+]
