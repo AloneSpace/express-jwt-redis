@@ -4,7 +4,7 @@ module.exports = (express) => {
     const route = express.Router();
 
     route.get("/", (req, res) => {
-        res.json({ message: "เข้า" });
+        res.json({ message: "Hello, World" });
     });
 
     route.post("/login", controller.login);
