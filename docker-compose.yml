@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+    express-jwt-redis:
+        container_name: express-jwt-redis
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "3001:3001"
+        volumes:
+            - ./:/usr/local/app/
+            - node_modules:/usr/local/app
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+        networks:
+            - backend
+        environment:
+            TZ: "Asia/Bangkok"
+
+networks:
+    backend:
+        external:
+            name: backend
