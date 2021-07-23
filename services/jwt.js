@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient({
+    host: process.env.NODE_ENV === "production" ? "redis" : "127.0.0.1",
+});
 
 function generateTokens({ username }) {
     try {

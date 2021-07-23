@@ -9,8 +9,12 @@ on:
 jobs:
     build:
         runs-on: self-hosted
-
         steps:
             - uses: actions/checkout@v2
+            - name: Define env file
+              run: |
+                  touch .env
+                  echo SECRET_TOKEN=SECRET_JWT_BRA >> .env
+                  cat .env
             - name: Build Express and Restart Container
-              run: docker-compose up -d --no-deps --build express-jwt-redis && docker restart express-jwt-redis
+              run: docker-compose up -d && docker restart express-jwt-redis

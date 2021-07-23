@@ -1,5 +1,11 @@
 version: "3.7"
 services:
+    redis:
+        container_name: redis
+        ports:
+            - "6379:6379"
+        networks:
+            - backend
     express-jwt-redis:
         container_name: express-jwt-redis
         build:
