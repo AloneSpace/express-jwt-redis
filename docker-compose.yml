@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - "3001:3001"
+            - "2999:2999"
         volumes:
             - ./:/usr/local/app/
             - node_modules:/usr/local/app
