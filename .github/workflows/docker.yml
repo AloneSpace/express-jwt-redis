@@ -1,18 +1,16 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
+    build:
+        runs-on: self-hosted
 
-  build:
-
-    runs-on: self-hosted
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build Express
-      run: docker-compose up -d --no-deps --build express-jwt-redis
+        steps:
+            - uses: actions/checkout@v2
+            - name: Build Express and Restart Container
+              run: docker-compose up -d --no-deps --build express-jwt-redis && docker restart express-jwt-redis
