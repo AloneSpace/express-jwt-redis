@@ -11,6 +11,10 @@ exports.login = async function (req, res) {
     return res.json(generateTokens(req.body));
 };
 
+exports.getAll = async function (req, res) {
+    return res.json(User.findAll());
+};
+
 exports.register = async function (req, res) {
     let { username, email, password } = req.body;
     let user_info = User.Register({ username, email, password });

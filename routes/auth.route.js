@@ -3,9 +3,7 @@ const controller = require("../controllers/auth.controller");
 module.exports = (express) => {
     const route = express.Router();
 
-    route.get("/", (req, res) => {
-        res.json({ message: "Hello, World from Express" });
-    });
+    route.get("/", controller.getAll);
 
     route.post("/login", controller.login);
     route.post("/register", controller.register);
