@@ -14,7 +14,8 @@ jobs:
             - name: Define env file
               run: |
                   touch .env
-                  echo SECRET_TOKEN=SECRET_JWT_BRA >> .env
+                  echo SECRET_TOKEN=SECRET_JWT_BRA 
+                  echo PORT=2999 >> .env
                   cat .env
             - name: Build Express and Restart Container
               run: docker-compose up -d && docker restart express-jwt-redis
