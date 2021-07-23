@@ -9,7 +9,7 @@ services:
             - "2999:2999"
         volumes:
             - ./:/usr/local/app/
-            - /dev/null:/usr/local/app
+            - /dev/null:/usr/local/app/node_modules/
             - /etc/localtime:/etc/localtime:ro
             - /etc/timezone:/etc/timezone:ro
         networks:
