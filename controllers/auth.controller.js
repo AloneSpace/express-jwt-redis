@@ -7,7 +7,7 @@ exports.login = async function (req, res) {
     if (!login_success)
         return res
             .status(401)
-            .json({ message: "Username or Password incorrect." });
+            .json({ message: "Username or Password incorrect...." });
     return res.json(generateTokens(req.body));
 };
 
