@@ -2,6 +2,8 @@ name: Docker Image CI
 
 on:
     push:
+        paths-ignore:
+            - "data/**" # Ignore changes towards the data directory
         branches: [main]
     pull_request:
         branches: [main]
