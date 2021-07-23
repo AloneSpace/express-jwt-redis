@@ -10,6 +10,7 @@ module.exports = (express) => {
     route.post("/login", controller.login);
     route.post("/register", controller.register);
     route.get("/profile", controller.profile);
+    route.post("/refresh_token", controller.refresh_token);
 
     return route;
 };
