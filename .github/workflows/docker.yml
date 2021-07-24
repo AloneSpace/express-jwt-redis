@@ -18,8 +18,8 @@ jobs:
         runs-on: self-hosted
         # needs: store_static
         steps:
-            - name: Copy old data folder
-              run: cp -r data/ data-copy/ && ls
+            - name: Move storage folder to temporary
+              run: mv data/ /home/alonecoding
             - uses: actions/checkout@v2
             # - name: Download Static
             #   uses: actions/download-artifact@v2
@@ -34,3 +34,5 @@ jobs:
                   cat .env
             - name: Build Express and Restart Container
               run: docker-compose up -d && docker restart express-jwt-redis
+            - name: Move storage folder back
+              run: mv /home/alonecoding/data data/
