@@ -7,12 +7,22 @@ on:
         branches: [main]
 
 jobs:
-    build:
+    store_image:
         runs-on: self-hosted
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/upload-artifact@v2
               with:
-                  fetch-depth: 2
+                  name: store_json_data
+                  path: data/
+    build:
+        runs-on: self-hosted
+        needs: store_image
+        steps:
+            - uses: actions/checkout@v2
+            - name: Download JSON data
+              uses: actions/download-artifact@v2
+              with:
+                  name: store_json_data
             - name: Define env file
               run: |
                   touch .env
