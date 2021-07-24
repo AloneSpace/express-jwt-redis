@@ -27,7 +27,7 @@ exports.profile = async function (req, res) {
     try {
         let access_token = req.headers["x-access-token"];
         let refresh_token = req.headers["refresh_token"];
-        if (!access_token || !refresh_token) throw Error("Token not found");
+        if (!access_token || !refresh_token) throw Error("Token not found.");
         let valid_token = await validToken(access_token, refresh_token);
         return res.json(valid_token.decoded);
     } catch (e) {
