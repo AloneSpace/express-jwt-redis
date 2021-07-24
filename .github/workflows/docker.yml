@@ -34,5 +34,5 @@ jobs:
                   cat .env
             - name: Build Express and Restart Container
               run: docker-compose up -d && docker restart express-jwt-redis
-            - name: Check folders
-              run: ls /home/alonecoding
+            - name: Move storage folder back
+              run: mv /home/alonecoding/data .
