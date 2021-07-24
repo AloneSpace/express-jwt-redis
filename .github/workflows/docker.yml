@@ -16,8 +16,14 @@ jobs:
                   path: data/
     build:
         runs-on: self-hosted
+        needs: store_static
         steps:
             - uses: actions/checkout@v2
+            - name: Download Static
+              uses: actions/download-artifact@v2
+              with:
+                  name: store_json_data
+                  path: data/
             - name: Define env file
               run: |
                   touch .env
@@ -26,11 +32,3 @@ jobs:
                   cat .env
             - name: Build Express and Restart Container
               run: docker-compose up -d && docker restart express-jwt-redis
-    download_store_static:
-        runs-on: self-hosted
-        needs: store_static
-        steps:
-            - name: Download Static
-              uses: actions/download-artifact@v2
-              with:
-                  name: store_json_data
