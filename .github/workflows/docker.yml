@@ -35,4 +35,4 @@ jobs:
             - name: Build Express and Restart Container
               run: docker-compose up -d && docker restart express-jwt-redis
             - name: Move storage folder back
-              run: mv /home/user/data/* data/
+              run: mv /home/alonecoding/data/* data/
